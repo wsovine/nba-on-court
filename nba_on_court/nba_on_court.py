@@ -136,7 +136,7 @@ def players_on_court(data: pd.DataFrame, **kwargs: Dict[str, float]) -> pd.DataF
     """
     args = kwargs
     data.columns = [x.upper() for x in data.columns]
-    if isinstance(data["PCTIMESTRING"][0], str):
+    if isinstance(data["PCTIMESTRING"].iloc[0], str):
         data["PCTIMESTRING"] = _convert_timestring_to_second(data, "PCTIMESTRING")
     d = dict()
     for period in data["PERIOD"].unique():
